@@ -1,7 +1,7 @@
 {
   "name": "jscripty",
   "version": "0.2.1",
-  "description": "a simple console-based es5-to-es6 REPL",
+  "description": "a simple console-based es6-to-es5 REPL",
   "main": "index.js",
   "scripts": {
     "test": "npm test",
