@@ -1,0 +1,27 @@
+{
+  "name": "jscripty",
+  "version": "0.1.0",
+  "description": "a simple console-based es5-to-es6 REPL",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brakmic/JScripty.git"
+  },
+  "keywords": [
+    "es5",
+    "es6",
+    "repl",
+    "ecmascript",
+    "javascript",
+    "console"
+  ],
+  "author": "Harris Brakmic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brakmic/JScripty/issues"
+  },
+  "homepage": "https://github.com/brakmic/JScripty#readme"
+}
