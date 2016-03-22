@@ -1,6 +1,6 @@
 {
   "name": "jscripty",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "a simple console-based es5-to-es6 REPL",
   "main": "index.js",
   "scripts": {
