@@ -9,6 +9,12 @@ written by [Callum Locke](https://twitter.com/callumlocke).
 
 I'm __only using it to learn__ ECMAScript 6, React & Redux.
 
+#### Installation
+
+```
+npm install jscripty
+```
+
 #### Running
 
 Open two consoles.
