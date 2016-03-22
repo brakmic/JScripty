@@ -2,7 +2,7 @@
 
 A simple REPL-like utility for transpiling & executing ES6 code.
 
-Inspired by the excellent [esbox](https://github.com/callumlocke/esbox)
+<del>Inspired by</del> Stolen from the excellent [esbox](https://github.com/callumlocke/esbox)
 written by [Callum Locke](https://twitter.com/callumlocke).
 
 **Beware**: This project is not intended to be used for anything productive!
