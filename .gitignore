@@ -34,3 +34,4 @@ node_modules
 
 # Vim temporary files
 package.json~
+.gitignore~
