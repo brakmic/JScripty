@@ -7,6 +7,8 @@ written by [Callum Locke](https://twitter.com/callumlocke).
 
 **Beware**: This project is not intended to be used for anything productive!
 
+It's a moving target and will likely change very soon.
+
 I'm __only using it to learn__ ECMAScript 6, React & Redux.
 
 #### Installation
