@@ -1,0 +1,22 @@
+.block-padding {
+  padding-bottom: .5em;
+}
+.picture-title {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 18px;
+}
+
+.sticky-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.container-shadowed {
+    margin-top: 50px;
+    box-shadow: 0 0 30px black;
+    padding:0 15px 0 15px;
+}
