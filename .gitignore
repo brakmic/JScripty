@@ -33,8 +33,8 @@ node_modules
 .node_repl_history
 
 # Vim temporary files
-package.json~
-.gitignore~
+*~
+*.swp
 
 # abandoned directories
 _lib

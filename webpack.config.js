@@ -11,6 +11,10 @@ var vendorScripts        = scriptsRoot + 'vendor/';
 //load polyfill 'globally'
 require('babel-polyfill');
 
+//stupid hacks to make isomophic-fetch happy
+global.self = global;
+global.XMLHttpRequest = require('xhr2');
+
 //get rid of webpack compile messages
 var clearScreen = function(){
   process.stdout.write(escapes.clearScreen);
@@ -50,12 +54,17 @@ var config = {
   plugins: [
     //new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
-       'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+      Promise: 'imports?this=>global!exports?global.Promise!es6-promise',
+      fetch: 'imports?this=>global!exports?global.fetch!isomorphic-fetch',
+      React: 'react',
     }),
     new WebpackOnBuildPlugin(function(stats) {
       readAsync('./dist/bundle.js');
     }),
   ],
+  externals:[{
+    xmlhttprequest: '{XMLHttpRequest:XMLHttpRequest}'
+  }],
   module: {
 
     loaders: [
@@ -117,6 +126,13 @@ var config = {
    devServer: { // not in use
     noInfo: true,
     contentBase: "./scripts"
+  },
+  node: {
+    console: true,
+    global: true,
+    process: true,
+    Buffer: true,
+    setImmediate: true
   },
   useMemoryFs: true,
   progress: true

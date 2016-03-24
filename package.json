@@ -40,9 +40,13 @@
     "builtin-modules": "^1.1.1",
     "cli-args": "^1.2.1",
     "cli-color": "^1.1.0",
+    "es6-promise": "^3.1.2",
+    "exports-loader": "^0.6.3",
     "file-loader": "^0.8.5",
     "fs": "0.0.2",
     "html-loader": "^0.4.3",
+    "imports-loader": "^0.6.5",
+    "isomorphic-fetch": "^2.2.1",
     "json-loader": "^0.5.4",
     "minimist": "^1.2.0",
     "on-build-webpack": "^0.1.0",
@@ -54,7 +58,9 @@
     "spawnify": "^2.3.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14",
-    "whatwg-fetch": "^0.11.0"
+    "whatwg-fetch": "^0.11.0",
+    "xhr2": "^0.1.3",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5"
