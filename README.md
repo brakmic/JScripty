@@ -23,7 +23,7 @@ Open two consoles.
 
 If you're running under Windows I recommend [ConEmu](https://conemu.github.io/).
 
-In the first console open *test/file.js* with your preferred editor.
+In the first console open *scripts/app/main.js* with your preferred editor.
 
 In the second console run the REPL by executing
 
