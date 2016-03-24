@@ -23,13 +23,20 @@ Open two consoles.
 
 If you're running under Windows I recommend [ConEmu](https://conemu.github.io/).
 
-In the first console open **scripts/app/main.js** with your preferred editor.
+In the first console open a script with your preferred editor.
 
 In the second console run the REPL by executing
 
 ```
 node cli.js ./scripts/app/main.js [or any other JS file]
 ```
+
+or
+
+```
+npm start [will automatically load scripts/app/main.js which is set in webpack.config.js]
+```
+
 
 Now edit the file and save it to kick-off the transpile-process in the REPL.
 
