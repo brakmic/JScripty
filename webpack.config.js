@@ -89,11 +89,11 @@ var config = {
                 test: /\.js$/,
                 include: path.join(__dirname, 'scripts'),
                 loader: 'babel-loader',
-                query: {
+              /*  query: {
                   "plugins": ["syntax-async-functions","transform-regenerator",
                               "transform-async-to-generator"],
                   "presets": ["es2015","stage-0"],
-                }
+                }*/
               }
         ]
   },
@@ -122,6 +122,4 @@ var config = {
   progress: true
 };
 
-module.exports = function(opts){
-  return config;
-};
+module.exports = function(){ return config; };

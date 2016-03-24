@@ -6,13 +6,9 @@
     "test": "npm test",
     "start": "webpack --watch --no-info"
   },
-  "preferGlobal": "true",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brakmic/JScripty.git"
-  },
-  "bin": {
-    "jscripty": "./cli.js"
   },
   "keywords": [
     "es5",
@@ -53,6 +49,7 @@
     "path-exists": "^2.1.0",
     "raw-loader": "^0.5.1",
     "require-from-string": "^1.1.0",
+    "spawnify": "^2.3.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14",
     "whatwg-fetch": "^0.11.0"

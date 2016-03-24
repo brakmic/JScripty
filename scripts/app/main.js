@@ -4,6 +4,6 @@ async function go(...args){
 
 module.exports = (function(){
 
-			             go('hello','world');
+			             go('hello','wold');
 
                 }());
