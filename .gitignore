@@ -41,3 +41,6 @@ _lib
 
 # dist folders
 /dist/
+
+#webpack folders
+.webpack_build_cache

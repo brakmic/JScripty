@@ -1,6 +1,5 @@
 var path                 = require('path');
 var webpack              = require('webpack');
-var exec                 = require('child_process').exec;
 var WebpackOnBuildPlugin = require('on-build-webpack');
 var requireFromString    = require('require-from-string');
 var fs                   = require('fs');
@@ -35,7 +34,7 @@ var readAsync = function(fileName){
     });
 };
 
-module.exports = {
+var config = {
   //devtool: 'source-map', //currently not in use
   entry: [
     //'babel-polyfill', //do not use polyfill here but as a require above
@@ -93,7 +92,7 @@ module.exports = {
                 query: {
                   "plugins": ["syntax-async-functions","transform-regenerator",
                               "transform-async-to-generator"],
-                  "presets": ["es2015","stage-0","react"],
+                  "presets": ["es2015","stage-0"],
                 }
               }
         ]
@@ -121,4 +120,8 @@ module.exports = {
   },
   useMemoryFs: true,
   progress: true
+};
+
+module.exports = function(opts){
+  return config;
 };
