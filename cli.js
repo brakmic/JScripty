@@ -6,18 +6,19 @@ var minimist = require('minimist');
 var argv   = minimist(process.argv.slice(2));
 var script = argv._;
 
-console.log("[FILE] : " + JSON.stringify(argv));
-
-build({
+var config = {
   config: __dirname + '/webpack.config.js',
   watch: true,
-  entry: [
-    script
-  ],
-}, function(err, data) {
+};
+
+if(script){
+  config['entry'] = script;
+}
+
+build(config, function(err, data) {
   if(err){
     console.error(err);
   }else{
-    console.log(JSON.stringify(data));
+    //console.log(JSON.stringify(data, null, 4));
   }
 });
