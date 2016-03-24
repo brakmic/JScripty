@@ -43,7 +43,7 @@ Now edit the file and save it to kick-off the transpile-process in the REPL.
 
 After a few moments your code will be executed and shown in the REPL.
 
-<img src="http://fs5.directupload.net/images/160324/2exjckcl.png"/>
+<img src="http://fs5.directupload.net/images/160325/76wmrqdx.png"/>
 
 #### Background info
 
