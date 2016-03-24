@@ -15,6 +15,7 @@ I'm __only using it to learn__ ECMAScript 6, React & Redux.
 
 ```
 git clone https://github.com/brakmic/JScripty.git
+npm install
 ```
 
 #### Running
