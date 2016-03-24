@@ -29,7 +29,7 @@ In the first console open a script with your preferred editor.
 In the second console run the REPL by executing
 
 ```
-node cli.js ./scripts/app/main.js [or any other JS file]
+node cli.js
 ```
 
 or
