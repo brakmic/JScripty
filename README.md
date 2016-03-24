@@ -14,7 +14,7 @@ I'm __only using it to learn__ ECMAScript 6, React & Redux.
 #### Installation
 
 ```
-npm install jscripty
+npm install jscripty -g
 ```
 
 #### Running
@@ -28,7 +28,7 @@ In the first console open **scripts/app/main.js** with your preferred editor.
 In the second console run the REPL by executing
 
 ```
-npm start
+jscripty
 ```
 
 Now edit the file and save it to kick-off the transpile-process in the REPL.
