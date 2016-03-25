@@ -21,13 +21,13 @@ let testReact = () => {
 	  message: 'Hello World!'
   });
 
-  //updateMessage('hello yoo');
-  console.log(`[HTML] : ${jscripty.domHelper.getHTML()}`);
+  //updateMessage('hello wooo');
+  //console.log(`[HTML] : ${jscripty.domHelper.getHTML()}`);
   //console.log(`${JSON.stringify(getDOMNode(), null, 4)}`);
 };
 
 export default (() => {
-    testAsync();
+    //testAsync();
     testReact();
     //saySomething('hello','world',' with ', 'React');
 })();

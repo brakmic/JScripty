@@ -19,7 +19,7 @@ export class MyComponent extends React.Component {
         console.log(`[shouldComponentUpdate] props : ${JSON.stringify(this.props)}, nextProps : ${JSON.stringify(nextProps)}`);
         return true;
     }
-    render(props){
+    render(){
         console.log(`[render] ${JSON.stringify(this.state.message)}`);
         return (<div>{this.state.message}</div>);
     }
