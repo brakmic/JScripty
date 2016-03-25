@@ -21,7 +21,7 @@ global.XMLHttpRequest = require('xhr2');
 //Another stupid hack to silent the 'clearScreen' function. 
 //This is because it has no effect when running in VisualStudio.
 //Visual Studio's Output doesn't recognize the clear-command.
-global.jscripty.isVisualStudio = false;
+global.jscripty.isVisualStudio = true;
 
 //get rid of webpack compile messages
 var clearScreen = function () {

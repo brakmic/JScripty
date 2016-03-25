@@ -3,16 +3,18 @@ async function go(...args){
 }
 
 module.exports = (function(){
-    //alternative APIs: https://randomuser.me/api/
-    let url = 'http://ron-swanson-quotes.herokuapp.com/v2/quotes';
+    //alternative APIs:
+    //let url = 'http://ron-swanson-quotes.herokuapp.com/v2/quotes';
 
+    let url = 'https://randomuser.me/api/';
+    
     //ES7 support (async/await)
     (async() => {
        try {
 	     //supports fetch on node  
              let response = await fetch(url);
              let data = await response.json();
-             console.log(data);
+             console.log(JSON.stringify(data, null, 4));
        } catch (e) {
           console.error(`${e}`);
        }
