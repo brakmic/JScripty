@@ -1,31 +1,55 @@
+require('babel-polyfill');
 var path                 = require('path');
 var webpack              = require('webpack');
 var WebpackOnBuildPlugin = require('on-build-webpack');
 var requireFromString    = require('require-from-string');
 var fs                   = require('fs');
 var escapes              = require('ansi-escapes');
+var domHelper            = require('./scripts/env/dom');
+var reactEnv             = require('./scripts/env/react');
 var _root                = __dirname + '/';
 var scriptsRoot          = _root + 'scripts/';
 var stylesRoot           = _root + 'styles/';
 var vendorScripts        = scriptsRoot + 'vendor/';
-//load polyfill 'globally'
-require('babel-polyfill');
 
-//additional flags
-global.jscripty = {};
+//React as a global reference
+global.React    = require('react');
+global.ReactDOM = require('react-dom');
 
-//Stupid hacks to make isomophic-fetch happy
+//JScripty React Helpers
+global.ReactEnv = reactEnv;
+
+//JScripty tools & configs
+global.jscripty = {
+  config: {
+    //set to "false" when not running in Visual Studio
+    keepPreviousOutput : true
+  },
+  react: {}
+};
+
+//React tools
+jscripty.react = {
+    reactRuns: false,
+    _message : 'hello world',
+    _component : null,
+    _node: null,
+};
+
+//Node-jsDOM tools
+jscripty.domHelper = domHelper;
+
+//Create window object
+jscripty.domHelper.setupDOM();
+
+//Stupid hack to make isomophic-fetch happy
 global.self = global;
 global.XMLHttpRequest = require('xhr2');
 
-//Another stupid hack to silent the 'clearScreen' function. 
-//This is because it has no effect when running in VisualStudio.
-//Visual Studio's Output doesn't recognize the clear-command.
-global.jscripty.isVisualStudio = true;
 
 //get rid of webpack compile messages
 var clearScreen = function () {
-   if (global.jscripty.isVisualStudio) return;
+   if (jscripty.config.keepPreviousOutput) return;
    process.stdout.write(escapes.clearScreen);
 };
 
@@ -61,11 +85,13 @@ var config = {
     publicPath: '/release/'
   },
   plugins: [
-    //new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
-      Promise: 'imports?this=>global!exports?global.Promise!es6-promise',
-      fetch: 'imports?this=>global!exports?global.fetch!isomorphic-fetch',
-      React: 'react',
+      Promise         : 'imports?this=>global!exports?global.Promise!es6-promise',
+      fetch           : 'imports?this=>global!exports?global.fetch!isomorphic-fetch',
+      $               : 'jquery',
+      jQuery          : 'jquery',
+      'window.jQuery' : 'jquery'
     }),
     new WebpackOnBuildPlugin(function(stats) {
       readAsync('./dist/bundle.js');
@@ -79,17 +105,21 @@ var config = {
     loaders: [
               //for future use *** begin
               {
-                include: /\.json$/,
-                loaders: ["json-loader"]
+                test: /\.json$/,
+                exclude: /node_modules/,
+                loader: 'json-loader'
               },
               {
-                  test : /\.html$/, loader: 'html'
+                  test : /\.html$/,
+                  loader: 'html'
               },
               {
-                  test : /\.less$/, loader: 'style-loader!css-loader!less-loader'
+                  test : /\.less$/,
+                  loader: 'style-loader!css-loader!less-loader'
               },
               {
-                  test : /\.css$/, loader: 'style-loader!css-loader'
+                  test : /\.css$/,
+                  loader: 'style-loader!css-loader'
               },
               {
                   test : /\.(png|jpe?g|eot|ttf|svg|gif)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -104,14 +134,15 @@ var config = {
               },
               //for future use *** end
               {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 include: path.join(__dirname, 'scripts'),
-                loader: 'babel-loader',
-                query: {
-                    "plugins": ["syntax-async-functions","transform-regenerator",
-                                "transform-async-to-generator"],
-                    "presets": ["es2015","stage-0","react"],
-                }
+                exclude: /node_modules/,
+                loaders: ['react-hot','babel-loader'],
+                /*query: {
+                   "plugins": ["syntax-async-functions","transform-regenerator",
+                               "transform-async-to-generator"],
+                   "presets": ["es2015","stage-0","react"],
+                }*/
               }
         ]
   },
