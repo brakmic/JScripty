@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 var build    = require('webpack-build');
 var minimist = require('minimist');
 
@@ -8,7 +6,7 @@ var script = argv._;
 
 var config = {
   config: __dirname + '/webpack.config.js',
-  watch: true,
+  watch: true
 };
 
 if(script){

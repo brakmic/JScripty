@@ -3,11 +3,10 @@ async function go(...args){
 }
 
 module.exports = (function(){
+    //alternative APIs: https://randomuser.me/api/
     let url = 'http://ron-swanson-quotes.herokuapp.com/v2/quotes';
-		//go('hello','welt');
-    
-    
-    //EC7 support (async/await)
+
+    //ES7 support (async/await)
     (async() => {
        try {
 	     //supports fetch on node  
@@ -15,11 +14,8 @@ module.exports = (function(){
              let data = await response.json();
              console.log(data);
        } catch (e) {
-          console.log(`${e}`);
+          console.error(`${e}`);
        }
     })();
 
-
-    go('hello','world');
-
-    }());
+}());

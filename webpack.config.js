@@ -11,13 +11,22 @@ var vendorScripts        = scriptsRoot + 'vendor/';
 //load polyfill 'globally'
 require('babel-polyfill');
 
-//stupid hacks to make isomophic-fetch happy
+//additional flags
+global.jscripty = {};
+
+//Stupid hacks to make isomophic-fetch happy
 global.self = global;
 global.XMLHttpRequest = require('xhr2');
 
+//Another stupid hack to silent the 'clearScreen' function. 
+//This is because it has no effect when running in VisualStudio.
+//Visual Studio's Output doesn't recognize the clear-command.
+global.jscripty.isVisualStudio = false;
+
 //get rid of webpack compile messages
-var clearScreen = function(){
-  process.stdout.write(escapes.clearScreen);
+var clearScreen = function () {
+   if (global.jscripty.isVisualStudio) return;
+   process.stdout.write(escapes.clearScreen);
 };
 
 process.on('uncaughtException', function(error){
@@ -126,13 +135,6 @@ var config = {
    devServer: { // not in use
     noInfo: true,
     contentBase: "./scripts"
-  },
-  node: {
-    console: true,
-    global: true,
-    process: true,
-    Buffer: true,
-    setImmediate: true
   },
   useMemoryFs: true,
   progress: true

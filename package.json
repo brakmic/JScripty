@@ -63,7 +63,8 @@
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.6.5"
+    "babel-cli": "^6.6.5",
+    "cli-clear": "^1.0.4"
   },
   "engines": {
     "node": ">=0.12"
