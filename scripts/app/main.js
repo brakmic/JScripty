@@ -18,7 +18,7 @@ let testReact = () => {
   runReact();
 
   component.setState({
-	  message: 'React from Console!'
+	  message: 'Hello World!'
   });
 
   //updateMessage('hello yoo');
@@ -27,7 +27,7 @@ let testReact = () => {
 };
 
 export default (() => {
-    //testAsync();
+    testAsync();
     testReact();
     //saySomething('hello','world',' with ', 'React');
 })();

@@ -93,7 +93,7 @@ After some experimentation with `hot-reloading`, `webpack-dev-server` and a few 
 - [on-build webpack plugin](https://www.npmjs.com/package/on-build-webpack) to reload the rebuilt scripts.
 - [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch) to easy make web requests.
 - [es6-promise polyfill](https://github.com/stefanpenner/es6-promise) to provide a globally available Promise API.
-- [React](https://www.npmjs.com/package/react) for future experiments. [*currently not in use*]
+- [React](https://www.npmjs.com/package/react) directly from the console. [Notice: *This is not some kind of isomorphic JS*]
 
 The whole logic is located in `webpack.config.js`.
 
