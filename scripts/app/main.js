@@ -1,23 +1,33 @@
-async function go(...args){
-  console.log(...args);
-}
+import { testAsync, saySomething } from './async.demo';
+import { setupReact, getComponent, getDOMNode, updateMessage } from './react.demo';
 
-module.exports = (function(){
-    //alternative APIs:
-    //let url = 'http://ron-swanson-quotes.herokuapp.com/v2/quotes';
+let component = null;
 
-    let url = 'https://randomuser.me/api/';
-    
-    //ES7 support (async/await)
-    (async() => {
-       try {
-	     //supports fetch on node  
-             let response = await fetch(url);
-             let data = await response.json();
-             console.log(JSON.stringify(data, null, 4));
-       } catch (e) {
-          console.error(`${e}`);
-       }
-    })();
+let runReact = () => {
+  if(!jscripty.react.reactRuns){
+      jscripty.react.reactRuns = true;
+      console.log(`[ORIGINAL HTML] : ${jscripty.domHelper.getHTML()}`);
+      setupReact();
+  }
+  component = getComponent();
+};
 
-}());
+
+let testReact = () => {
+
+  runReact();
+
+  component.setState({
+	  message: 'React from Console!'
+  });
+
+  //updateMessage('hello yoo');
+  console.log(`[HTML] : ${jscripty.domHelper.getHTML()}`);
+  //console.log(`${JSON.stringify(getDOMNode(), null, 4)}`);
+};
+
+export default (() => {
+    //testAsync();
+    testReact();
+    //saySomething('hello','world',' with ', 'React');
+})();
