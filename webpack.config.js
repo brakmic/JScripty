@@ -12,9 +12,6 @@ var scriptsRoot          = _root + 'scripts/';
 var stylesRoot           = _root + 'styles/';
 var vendorScripts        = scriptsRoot + 'vendor/';
 
-//kick-off
-require(JScripty);
-
 //Stupid hack to make isomophic-fetch happy
 global.self = global;
 
@@ -106,17 +103,17 @@ var config = {
                   loader: "file-loader?name=[path][name].[ext]"
               },
               //for future use *** end
-              {
-                test: /\.jsx?$/,
-                include: path.join(__dirname, 'scripts'),
-                exclude: /node_modules/,
-                loaders: ['react-hot','babel-loader'],
-                /*query: {
-                   "plugins": ["syntax-async-functions","transform-regenerator",
-                               "transform-async-to-generator"],
-                   "presets": ["es2015","stage-0","react"],
-                }*/
-              }
+              // {
+              //   test: /\.jsx?$/,
+              //   include: path.join(__dirname, 'scripts'),
+              //   exclude: /node_modules/,
+              //   loaders: ['react-hot','babel-loader'],
+              //   query: {
+              //      "plugins": ["syntax-async-functions","transform-regenerator",
+              //                  "transform-async-to-generator"],
+              //      "presets": ["es2015","stage-0","react"],
+              //   }
+              // }
         ]
   },
   resolve: {
@@ -144,4 +141,16 @@ var config = {
   progress: true
 };
 
-module.exports = function(){ return config; };
+module.exports = function(opts){
+  if(!opts)throw new Error('WebPack configuration options are missing.');
+    global._argv = opts.argv;
+    if(opts.loaders &&
+      opts.loaders.length > 0){
+      for (var i = 0; i < opts.loaders.length; i++) {
+        config.module.loaders.push(opts.loaders[i]);
+      };
+  }
+  //kick-off
+  require(JScripty);
+  return config;
+};

@@ -1,20 +1,23 @@
 ### JScripty
 
-A simple REPL-like utility for transpiling & executing ES6 code.
+A simple REPL-like utility for transpiling & executing ES6/ES7 code.
 
 <del>Inspired by</del> Stolen from the excellent [esbox](https://github.com/callumlocke/esbox)
 written by [Callum Locke](https://twitter.com/callumlocke).
 
 **Beware**: This project is not intended to be used for anything productive!
 
-It's a moving target and will likely change very soon.
+I'm __only using it to learn and test__ several frameworks and libraries [*Inferno, React & Redux*]
 
-I'm __only using it to learn__ ECMAScript 6, React & Redux.
+JScripty creates a fully functional `headless` browser environment in the console. Although there's no browser you still have the complete DOM functionality.
 
 #### Current Status
 
-- Supports ES6 & ES7. [[Babel](https://babeljs.io/) presets & plugins]
-- Supports React in the console. [[jsdom](https://www.npmjs.com/package/jsdom)]
+- Compiles ES6 & ES7. [[Babel](https://babeljs.io/) presets & plugins]
+- Runs [React](https://github.com/facebook/react) from the console. [with [jsdom](https://www.npmjs.com/package/jsdom)]
+- Runs [Inferno](https://github.com/trueadm/inferno) from the console. [latest version [0.6.0](https://github.com/trueadm/inferno/releases/tag/0.6.0)]
+- Uses [WebPack](https://webpack.github.io/) to create a fully operational environment for `headless` live testing. :smile:
+- Uses [jsdom](https://github.com/tmpvar/jsdom) to provide a complete DOM environment in the console.
 
 <img src="http://fs5.directupload.net/images/160325/hwjalw4v.png" width="900" height="500"/>
 
@@ -33,22 +36,23 @@ If you're running under Windows I recommend [ConEmu](https://conemu.github.io/).
 
 In the first console open a script with your preferred editor.
 
-In the second console run the REPL by executing
+In the second console run JScripty with your preferred UI-Engine by executing
 
 ```
-node cli.js
-```
+node cli.js --react
 
 or
 
+node cli.js --inferno
 ```
-npm start [will automatically load scripts/app/main.js which is set in webpack.config.js]
-```
-
 
 Now edit the file and save it to kick-off the **transpile-process** in the REPL.
 
 After a few moments your code will be executed and shown in the REPL.
+
+#### Playing with Inferno & React
+
+Change some piece of code, for example a component property, and press CTRL+S. Your running Inferno or React instances will calculate the `diffs` and update accordingly. With a few simple `logging commands` you can now trace the data flows and interactions of your components.
 
 #### IDE Integration
 
@@ -94,6 +98,7 @@ After some experimentation with `hot-reloading`, `webpack-dev-server` and a few 
 - [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch) to execute web requests.
 - [es6-promise polyfill](https://github.com/stefanpenner/es6-promise) to provide a globally available Promise API.
 - [React](https://www.npmjs.com/package/react) directly from the console. [Notice: *This is not some kind of isomorphic JS*]
+- [Inferno](https://github.com/trueadm/inferno)  directly from the console. [Same here: *this is not isomorphic JavaScript*]
 
 The whole logic is located in `webpack.config.js`.
 

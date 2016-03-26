@@ -1,15 +1,8 @@
-var _root = __dirname + '/';
-//React as a global reference
-global.React    = require('react');
-global.ReactDOM = require('react-dom');
+var _root             = __dirname + '/';
+var bows              = require('bows');
 //For isomorphic-fetch
 global.XMLHttpRequest = require('xhr2');
-
-var domHelper   = require(_root + 'dom');
-var reactEnv    = require(_root + 'react');
-
-//JScripty React Helpers
-global.ReactEnv = reactEnv;
+var domHelper         = require(_root + 'dom');
 
 //JScripty tools & configs
 global.jscripty = {
@@ -17,8 +10,22 @@ global.jscripty = {
     //set to "false" when not running in Visual Studio
     keepPreviousOutput : true
   },
-  react: {}
+  activeFrameworks: [],
+  react: {},
+  inferno: {},
+  //Node-jsDOM tools
+  domHelper: domHelper,
+  argv: global._argv,
+  getLogger: function(area){
+    return bows(area);
+  }
 };
+
+//React
+global.React    = require('react');
+global.ReactDOM = require('react-dom');
+//JScripty React Helpers
+global.ReactEnv = require(_root + 'react');
 
 //React tools
 jscripty.react = {
@@ -28,12 +35,19 @@ jscripty.react = {
     _node: null,
 };
 
-//Node-jsDOM tools
-jscripty.domHelper = domHelper;
-
+//Inferno
+global.Inferno    = require('inferno');
+global.InfernoDOM = require('inferno-dom');
+global.InfernoEnv = require(_root + 'inferno');
+//Inferno tools
+jscripty.inferno = {
+    infernoRuns: false,
+    _message : 'hello world',
+    _component : null,
+    _node: null,
+};
 
 module.exports = (function(){
-
   //Create window object
   jscripty.domHelper.setupDOM();
 
