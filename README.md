@@ -72,11 +72,11 @@ The import will take a few moments and in the end you should get the following p
 
 <img src="http://fs5.directupload.net/images/160325/gsqqooya.png" width="300" height="350"/>
 
-You can now select the `JScripty` menu option to start the watcher. Now change something in your main.js and watch the output.
+You can now select the `JScripty` menu option to start the watcher. Now change something in your *main.js* and watch the output.
 
 <img src="http://fs5.directupload.net/images/160325/e26qrtd3.png" width="900" height="500"/>
 
-**Notice**: Visual Studio's Output Window doesn't recognize **ANSI Escape Commands** which makes the `clearScreen` function unusable. In `webpack.config.js` you can find a variable to silent the ANSI-output.
+**Notice**: Visual Studio's Output Window doesn't recognize **ANSI Escape Commands** which makes the `clearScreen` function unusable. In `scripts/env/jscripty.js` you can find a variable to silent the ANSI-output.
 
 #### Background info
 
