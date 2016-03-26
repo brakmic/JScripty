@@ -18,11 +18,11 @@ let testReact = () => {
   runReact();
 
   component.setState({
-	  message: 'Hello World!'
+	  message: 'Hello Boo!'
   });
 
-  //updateMessage('hello wooo');
-  //console.log(`[HTML] : ${jscripty.domHelper.getHTML()}`);
+  // updateMessage('hello wooo');
+  // console.log(`[HTML] : ${jscripty.domHelper.getHTML()}`);
   //console.log(`${JSON.stringify(getDOMNode(), null, 4)}`);
 };
 

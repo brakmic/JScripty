@@ -1,51 +1,22 @@
 require('babel-polyfill');
 var path                 = require('path');
+var _root                = __dirname + '/';
 var webpack              = require('webpack');
 var WebpackOnBuildPlugin = require('on-build-webpack');
 var requireFromString    = require('require-from-string');
 var fs                   = require('fs');
 var escapes              = require('ansi-escapes');
-var domHelper            = require('./scripts/env/dom');
-var reactEnv             = require('./scripts/env/react');
+var JScripty             = _root + 'scripts/env/jscripty';
 var _root                = __dirname + '/';
 var scriptsRoot          = _root + 'scripts/';
 var stylesRoot           = _root + 'styles/';
 var vendorScripts        = scriptsRoot + 'vendor/';
 
-//React as a global reference
-global.React    = require('react');
-global.ReactDOM = require('react-dom');
-
-//JScripty React Helpers
-global.ReactEnv = reactEnv;
-
-//JScripty tools & configs
-global.jscripty = {
-  config: {
-    //set to "false" when not running in Visual Studio
-    keepPreviousOutput : true
-  },
-  react: {}
-};
-
-//React tools
-jscripty.react = {
-    reactRuns: false,
-    _message : 'hello world',
-    _component : null,
-    _node: null,
-};
-
-//Node-jsDOM tools
-jscripty.domHelper = domHelper;
-
-//Create window object
-jscripty.domHelper.setupDOM();
+//kick-off
+require(JScripty);
 
 //Stupid hack to make isomophic-fetch happy
 global.self = global;
-global.XMLHttpRequest = require('xhr2');
-
 
 //get rid of webpack compile messages
 var clearScreen = function () {
@@ -82,24 +53,26 @@ var config = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/release/'
+    publicPath: '/release/',
+    /*libraryTarget: "var",
+    library: 'jscripty',*/
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
-      Promise         : 'imports?this=>global!exports?global.Promise!es6-promise',
-      fetch           : 'imports?this=>global!exports?global.fetch!isomorphic-fetch',
-      $               : 'jquery',
-      jQuery          : 'jquery',
-      'window.jQuery' : 'jquery'
+       'Promise'            : 'imports?this=>global!exports?global.Promise!es6-promise',
+       'fetch'              : 'imports?this=>global!exports?global.fetch!isomorphic-fetch',
+       '$'                  : 'jquery',
+       'jQuery'             : 'jquery',
+       'window.jQuery'      : 'jquery',
     }),
     new WebpackOnBuildPlugin(function(stats) {
       readAsync('./dist/bundle.js');
     }),
   ],
-  externals:[{
+  externals:{
     xmlhttprequest: '{XMLHttpRequest:XMLHttpRequest}'
-  }],
+  },
   module: {
 
     loaders: [

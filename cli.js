@@ -17,6 +17,7 @@ build(config, function(err, data) {
   if(err){
     console.error(err);
   }else{
+    // domHelper.setupDOM();
     //console.log(JSON.stringify(data, null, 4));
   }
 });
