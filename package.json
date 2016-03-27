@@ -85,7 +85,8 @@
     "babel-cli": "^6.6.5",
     "cli-clear": "^1.0.4",
     "html-webpack-plugin": "^2.14.0",
-    "jsdom": "^8.1.0"
+    "jsdom": "^8.1.0",
+    "json-stringify-safe": "^5.0.1"
   },
   "engines": {
     "node": ">=0.12"

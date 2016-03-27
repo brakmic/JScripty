@@ -2,6 +2,7 @@ var _root             = __dirname + '/';
 var bows              = require('bows');
 //For isomorphic-fetch
 global.XMLHttpRequest = require('xhr2');
+var stringify         = require('json-stringify-safe');
 var domHelper         = require(_root + 'dom');
 var RactiveHelper     = require('../app/ractive-helper.js');
 
@@ -18,6 +19,9 @@ global.jscripty = {
   //Node-jsDOM tools
   domHelper: domHelper,
   argv: global._argv,
+  tools: {
+    stringify: stringify
+  },
   getLogger: function(area){
     return bows(area);
   }

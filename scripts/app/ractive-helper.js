@@ -2,7 +2,7 @@ var log = require('bows')('RactiveHelper');
 
 var template = '<div>' +
                     '<div>{{message}}</div>' +
-                    '<input id="hello-button" type="button" on-click="button-clicked:{{\'hello-button-clicked\'}}"/>' +
+                    '<input id="hello-button" type="button" on-click="button-clicked"/>' +
                 '</div>';
 
 var ractiveInstance = null;
@@ -20,13 +20,23 @@ var setup = function(elementId){
       return {
         message: 'hello world'
       };
+    },
+    oninit: function(){
+      log('[init]');
+    },
+    onrender: function(){
+      log('[render]');
+      this.on('button-clicked', function(e){
+        e.original.preventDefault();
+        log('Button clicked!');
+      });
+    },
+    onupdate: function(){
+      log('[update]');
+    },
+    onteardown: function(){
+      log('[teardown]');
     }
-  });
-  ractiveInstance.on('button-clicked', function(e, selection){
-      var ev = e;
-      var selectedObject = selection.replace('-clicked','');
-      ev.original.preventDefault();
-      log('selectedObject} selected');
   });
 };
 

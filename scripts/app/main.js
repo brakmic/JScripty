@@ -30,22 +30,32 @@ let runRactive = () => {
 
 export default (() => {
     let component = null;
+    //************** ES6 / ES7 ********************/
     //testAsync();
 
+    /**************** REACT ************************/
     //runReact();
     //component = ReactHelper.getComponent();
     //component.setState({message: 'Hello React'});
 
+    //****************** INFERNO ********************/
     //runInferno();
     //component = InfernoHelper.getComponent();
     //component.setState({message: 'Hello Inferno'});
     //log(`[component] : ${JSON.stringify(jscripty.inferno._component, null, 4)}`);
     //saySomething('hello','world',' with ', 'React');
 
+    //*********************** RACTIVE *************************/
     runRactive();
     component = RactiveHelper.getComponent();
-    log('Message is: ' + component.get('message'));
+    /*log('Message is: ' + component.get('message'));
     component.set('message','YOLO!');
-    log('Message is now: ' + component.get('message'));
+    log('Message is now: ' + component.get('message'));*/
+    let rawEvent = new window.Event('hello-button-clicked');
+    let proxyEvent = {
+                        node: document.getElementById('hello-button'),
+                        original: rawEvent,
+                     };
+    component.fire('button-clicked', proxyEvent);
 
 })();

@@ -26,7 +26,9 @@ var setupDOM = function (html) {
     } else {
         docHTML = _html;
     }
-    global.document = jsDOM.jsdom(docHTML);
+    global.document = jsDOM.jsdom(docHTML,{
+                              virtualConsole: jsDOM.createVirtualConsole().sendTo(console)
+                            });
     global.window = global.document.defaultView;
     global.navigator = {
         userAgent: 'JScripty.DOM'
@@ -49,4 +51,5 @@ module.exports = {
     getElement: getElement,
     defaultHtml: _html,
     getHTML: getHTML,
+    jsDOM : jsDOM
 }
