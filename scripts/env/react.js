@@ -5,8 +5,8 @@ var render = function(reactComponent, domElement){
     return reactElement;
 };
 
-var ReactHelper = {
+var ReactEnv = {
   render: render
 }
 
-module.exports = ReactHelper;
+module.exports = ReactEnv;

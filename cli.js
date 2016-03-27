@@ -7,12 +7,13 @@ var log           = require('bows')('CLI');
 
 var argv          = minimist(process.argv.slice(2));
 var script        = argv._;
-var info          = '';
+var info          = [];
 
 var config = {
   config: __dirname + '/webpack.config.js',
   watch: true,
   argv: argv,
+  loaders: []
 };
 
 if(script){
@@ -44,29 +45,40 @@ var webpackLoaderInferno = {
     ]
   }
 }
+//Process Ractive components
+var webpackLoaderRactive = {
+  test: /\.ract$/,
+  exclude: [/node_modules/, /bower_components/, /vendor/],
+  loader: 'ractive-component'
+};
+
+if(argv.react &&
+  argv.inferno){
+  throw new Error('Running React and Inferno in parallel is not allowed!');
+}
 
 if(!argv.react &&
   !argv.inferno){
   config['argv']['react'] = true;
 }
 
-if(argv.react &&
-  argv.inferno){
-  throw new Error('Running React and Inferno in parallel is not allowed!');
-}
 if(argv.react){
-  config.loaders = [ webpackLoaderReact ];
-  info = 'runs with React';
+  config.loaders.push(webpackLoaderReact);
+  info.push('React');
 }
 if(argv.inferno){
-  config.loaders = [ webpackLoaderInferno ];
-  info = 'runs with Inferno';
+  config.loaders.push(webpackLoaderInferno);
+  info.push('Inferno');
+}
+if(argv.ractive){
+  config.loaders.push(webpackLoaderRactive);
+  info.push('Ractive');
 }
 
 build(config, function(err, data) {
   if(err){
     console.error(err);
   }else{
-    log('JScripty ' + info);
+    log('JScripty runs with: ' + info);
   }
 });

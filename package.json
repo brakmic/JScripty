@@ -16,7 +16,12 @@
     "repl",
     "ecmascript",
     "javascript",
-    "console"
+    "console",
+    "ractive",
+    "react",
+    "inferno",
+    "vdom",
+    "hmtl5"
   ],
   "author": "Harris Brakmic",
   "license": "MIT",
@@ -62,6 +67,8 @@
     "net": "^1.0.2",
     "on-build-webpack": "^0.1.0",
     "path-exists": "^2.1.0",
+    "ractive": "^0.7.3",
+    "ractive-component-loader": "^1.2.0",
     "raw-loader": "^0.5.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",

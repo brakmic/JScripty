@@ -1,7 +1,8 @@
 import { testAsync, saySomething } from './async-helper';
 import ReactHelper                 from './react-helper';
 import InfernoHelper               from './inferno-helper';
-let log       = jscripty.getLogger('Main');
+let RactiveHelper = jscripty.ractive.helper;
+let log = jscripty.getLogger('Main');
 
 let runReact = () => {
   if(!jscripty.argv.react)return;
@@ -19,6 +20,14 @@ let runInferno = () => {
   }
 };
 
+let runRactive = () => {
+  if(!jscripty.argv.ractive)return;
+  if(!jscripty.ractive.ractiveRuns){
+    jscripty.ractive.ractiveRuns = true;
+    RactiveHelper.setup();
+  }
+};
+
 export default (() => {
     let component = null;
     //testAsync();
@@ -27,9 +36,16 @@ export default (() => {
     //component = ReactHelper.getComponent();
     //component.setState({message: 'Hello React'});
 
-    runInferno();
-    component = InfernoHelper.getComponent();
-    component.setState({message: 'Hello Inferno'});
+    //runInferno();
+    //component = InfernoHelper.getComponent();
+    //component.setState({message: 'Hello Inferno'});
     //log(`[component] : ${JSON.stringify(jscripty.inferno._component, null, 4)}`);
-    // saySomething('hello','world',' with ', 'React');
+    //saySomething('hello','world',' with ', 'React');
+
+    runRactive();
+    component = RactiveHelper.getComponent();
+    log('Message is: ' + component.get('message'));
+    component.set('message','YOLO!');
+    log('Message is now: ' + component.get('message'));
+
 })();

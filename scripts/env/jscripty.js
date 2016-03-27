@@ -3,6 +3,7 @@ var bows              = require('bows');
 //For isomorphic-fetch
 global.XMLHttpRequest = require('xhr2');
 var domHelper         = require(_root + 'dom');
+var RactiveHelper     = require('../app/ractive-helper.js');
 
 //JScripty tools & configs
 global.jscripty = {
@@ -13,6 +14,7 @@ global.jscripty = {
   activeFrameworks: [],
   react: {},
   inferno: {},
+  ractive: {},
   //Node-jsDOM tools
   domHelper: domHelper,
   argv: global._argv,
@@ -45,6 +47,16 @@ jscripty.inferno = {
     _message : 'hello world',
     _component : null,
     _node: null,
+};
+
+//Ractive
+global.Ractive    = require('ractive');
+jscripty.ractive = {
+  ractiveRuns: false,
+  _message : 'hello world',
+  _component : null,
+  _node : null,
+  helper: RactiveHelper
 };
 
 module.exports = (function(){
