@@ -31,5 +31,5 @@ export default (() => {
     component = InfernoHelper.getComponent();
     component.setState({message: 'Hello Inferno'});
 
-    //saySomething('hello','world',' with ', 'React');
+    // saySomething('hello','world',' with ', 'React');
 })();

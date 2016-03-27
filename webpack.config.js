@@ -11,6 +11,7 @@ var _root                = __dirname + '/';
 var scriptsRoot          = _root + 'scripts/';
 var stylesRoot           = _root + 'styles/';
 var vendorScripts        = scriptsRoot + 'vendor/';
+var log                  = require('bows')('CLI');
 
 //Stupid hack to make isomophic-fetch happy
 global.self = global;
@@ -22,7 +23,7 @@ var clearScreen = function () {
 };
 
 process.on('uncaughtException', function(error){
-  console.log("[EXCEPTION] : " + error);
+  log(error);
 });
 
 //load changed file,
@@ -34,7 +35,7 @@ var readAsync = function(fileName){
         clearScreen();
         requireFromString(data.toString());
       }else{
-        console.log("[ERROR] " + error);
+        log(error);
       }
     });
 };

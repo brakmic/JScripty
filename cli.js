@@ -3,6 +3,7 @@ var _root         = __dirname + '/';
 var build         = require('webpack-build');
 var webpackConfig = require('./webpack.config.js');
 var minimist      = require('minimist');
+var log           = require('bows')('CLI');
 
 var argv          = minimist(process.argv.slice(2));
 var script        = argv._;
@@ -66,6 +67,6 @@ build(config, function(err, data) {
   if(err){
     console.error(err);
   }else{
-    console.log('JScripty ' + info);
+    log('JScripty ' + info);
   }
 });
