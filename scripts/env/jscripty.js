@@ -2,6 +2,7 @@ var _root             = __dirname + '/';
 var bows              = require('bows');
 //For isomorphic-fetch
 global.XMLHttpRequest = require('xhr2');
+var repl              = require('repl');
 var stringify         = require('json-stringify-safe');
 var domHelper         = require(_root + 'dom');
 var RactiveHelper     = require('../app/ractive-helper.js');
@@ -20,7 +21,8 @@ global.jscripty = {
   domHelper: domHelper,
   argv: global._argv,
   tools: {
-    stringify: stringify
+    stringify: stringify,
+    repl: repl
   },
   getLogger: function(area){
     return bows(area);
@@ -39,6 +41,7 @@ jscripty.react = {
     _message : 'hello world',
     _component : null,
     _node: null,
+    helper: null,
 };
 
 //Inferno
@@ -51,6 +54,7 @@ jscripty.inferno = {
     _message : 'hello world',
     _component : null,
     _node: null,
+    helper: null,
 };
 
 //Ractive
@@ -64,7 +68,5 @@ jscripty.ractive = {
 };
 
 module.exports = (function(){
-  //Create window object
   jscripty.domHelper.setupDOM();
-
 }());

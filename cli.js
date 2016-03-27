@@ -3,7 +3,7 @@ var _root         = __dirname + '/';
 var build         = require('webpack-build');
 var webpackConfig = require('./webpack.config.js');
 var minimist      = require('minimist');
-var log           = require('bows')('CLI');
+var log           = require('bows')('JScripty');
 
 var argv          = minimist(process.argv.slice(2));
 var script        = argv._;
@@ -51,28 +51,48 @@ var webpackLoaderRactive = {
   exclude: [/node_modules/, /bower_components/, /vendor/],
   loader: 'ractive-component'
 };
+//Basic Babel functionalities in REPL-mode
+var webpackLoaderREPL = {
+  test: /\.jsx?$/,
+  include: path.join(__dirname, 'scripts'),
+  exclude: /node_modules/,
+  loaders: ['babel-loader'],
+};
+
 
 if(argv.react &&
   argv.inferno){
   throw new Error('Running React and Inferno in parallel is not allowed!');
 }
-
+//When not in REPL at least one Framework has to be active
 if(!argv.react &&
-  !argv.inferno){
+  !argv.inferno &&
+  !argv.repl){
   config['argv']['react'] = true;
 }
-
+//Babel for React
 if(argv.react){
   config.loaders.push(webpackLoaderReact);
   info.push('React');
 }
+//Babel for Inferno (uses different plugins for JSX processing)
 if(argv.inferno){
   config.loaders.push(webpackLoaderInferno);
   info.push('Inferno');
 }
+//Ractive components loader
 if(argv.ractive){
   config.loaders.push(webpackLoaderRactive);
   info.push('Ractive');
+}
+//Use default Babel to process ES6/ES7 via .babelrc
+if(argv.repl){
+  config.repl = true;
+  info.push('REPL');
+  if(!argv.react &&
+    !argv.inferno){
+    config.loaders.push(webpackLoaderREPL);
+  }
 }
 
 build(config, function(err, data) {

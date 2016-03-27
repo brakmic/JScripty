@@ -43,17 +43,12 @@ var readAsync = function(fileName){
 var config = {
   //devtool: 'source-map', //currently not in use
   entry: [
-    //'babel-polyfill', //do not use polyfill here but as a require above
-    //'webpack-dev-server/client?http://localhost:8080',
-    //'webpack/hot/only-dev-server',
     './scripts/app/main'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/release/',
-    /*libraryTarget: "var",
-    library: 'jscripty',*/
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -104,17 +99,6 @@ var config = {
                   loader: "file-loader?name=[path][name].[ext]"
               },
               //for future use *** end
-              // {
-              //   test: /\.jsx?$/,
-              //   include: path.join(__dirname, 'scripts'),
-              //   exclude: /node_modules/,
-              //   loaders: ['react-hot','babel-loader'],
-              //   query: {
-              //      "plugins": ["syntax-async-functions","transform-regenerator",
-              //                  "transform-async-to-generator"],
-              //      "presets": ["es2015","stage-0","react"],
-              //   }
-              // }
         ]
   },
   resolve: {
@@ -150,6 +134,9 @@ module.exports = function(opts){
       for (var i = 0; i < opts.loaders.length; i++) {
         config.module.loaders.push(opts.loaders[i]);
       };
+  }
+  if(opts.repl){
+    config.entry = ['./scripts/app/repl']
   }
   //kick-off
   require(JScripty);

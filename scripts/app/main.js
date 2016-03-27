@@ -4,6 +4,9 @@ import InfernoHelper               from './inferno-helper';
 let RactiveHelper = jscripty.ractive.helper;
 let log = jscripty.getLogger('Main');
 
+jscripty.inferno.helper = InfernoHelper;
+jscripty.react.helper = ReactHelper;
+
 let runReact = () => {
   if(!jscripty.argv.react)return;
   if(!jscripty.react.reactRuns){
