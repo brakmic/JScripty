@@ -32,8 +32,6 @@ let setup = (elementId = 'app') => {
     jscripty.inferno._element = jscripty.domHelper.getElement(elementId);
     jscripty.inferno._component = InfernoEnv.render(<MyComponent message={jscripty.inferno._message} />,
                                                                                 jscripty.inferno._element);
-
-    log(`${JSON.stringify(jscripty.inferno._component, null, 4)}`);
     jscripty.inferno._node = null;
 };
 

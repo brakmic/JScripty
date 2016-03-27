@@ -30,6 +30,6 @@ export default (() => {
     runInferno();
     component = InfernoHelper.getComponent();
     component.setState({message: 'Hello Inferno'});
-
+    //log(`[component] : ${JSON.stringify(jscripty.inferno._component, null, 4)}`);
     // saySomething('hello','world',' with ', 'React');
 })();
