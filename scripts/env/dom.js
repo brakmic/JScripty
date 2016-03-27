@@ -46,10 +46,18 @@ var getHTML = function(){
     return document.documentElement.innerHTML;
 };
 
+var resetDOM = function(){
+    if (typeof document !== 'undefined') {
+        document = undefined;
+    }
+    setupDOM();
+};
+
 module.exports = {
-    setupDOM: setupDOM,
-    getElement: getElement,
-    defaultHtml: _html,
-    getHTML: getHTML,
-    jsDOM : jsDOM
+    setupDOM    : setupDOM,
+    resetDOM    : resetDOM,
+    getElement  : getElement,
+    defaultHtml : _html,
+    getHTML     : getHTML,
+    jsDOM       : jsDOM
 }
