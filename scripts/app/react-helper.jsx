@@ -22,8 +22,8 @@ class MyComponent extends React.Component {
         return true;
     }
     render(){
-        log(`[render] ${JSON.stringify(this.state.message)}`);
-        return (<div>{this.state.message}</div>);
+        log(`[render] ${JSON.stringify(this.props.message)}`);
+        return (<div>{this.props.message}</div>);
     }
 }
 
