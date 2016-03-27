@@ -1,6 +1,6 @@
 ### JScripty
 
-A simple REPL-like utility for transpiling & executing ES6/ES7 code.
+A simple REPL for transpiling & executing ES6/ES7 code.
 
 <del>Inspired by</del> Stolen from the excellent [esbox](https://github.com/callumlocke/esbox)
 written by [Callum Locke](https://twitter.com/callumlocke).
@@ -19,6 +19,7 @@ JScripty creates a fully functional `headless` browser environment in the consol
 - Runs [Ractive](http://www.ractivejs.org/) from the console.
 - Uses [WebPack](https://webpack.github.io/) to create a fully operational environment for `headless` live testing. :smile:
 - Uses [jsdom](https://github.com/tmpvar/jsdom) to provide a complete DOM environment in the console.
+- Offers a simple **REPL** for direct access. [namespace *jscripty*]
 
 <img src="http://fs5.directupload.net/images/160325/hwjalw4v.png" width="900" height="500"/>
 
@@ -47,11 +48,23 @@ or
 node cli.js --inferno
 ```
 
-**Ractive.js** can run with both of them. Just add `--ractive`. :smile:
+**Ractive.js** can run with both of them. Just append an additional `--ractive` flag. :smile:
 
-Now edit the file and save it to kick-off the **transpile-process** in the REPL.
+Now edit the file and save it to kick-off the **transpile-process**.
 
-After a few moments your code will be executed and shown in the REPL.
+After a few moments your code will be executed and shown in the console.
+
+#### REPL
+
+There's also a simple REPL available. All functions are located inside the namespace *jscripty*.
+
+```
+node cli.js --repl
+```
+
+Here's an example with **React**.
+
+<img src="http://fs5.directupload.net/images/160327/xlnamxeb.png" width="900" height="400"/>
 
 #### Playing with Inferno, Ractive & React
 
@@ -103,8 +116,7 @@ After some experimentation with `hot-reloading`, `webpack-dev-server` and a few 
 - [React](https://www.npmjs.com/package/react) directly from the console.
 - [Inferno](https://github.com/trueadm/inferno)  directly from the console.
 - [Ractive](http://www.ractivejs.org/) directly from the console.
-
-The whole logic is located in `webpack.config.js`.
+- **REPL**
 
 #### License
 
