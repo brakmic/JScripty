@@ -20,7 +20,7 @@ async function saySomething(...args){
   console.log(...args);
 }
 
-export {
+export default {
   testAsync,
   saySomething
-};
+}
