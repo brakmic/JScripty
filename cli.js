@@ -1,8 +1,11 @@
+#!/usr/bin/env node
+
 var path          = require('path');
 var _root         = __dirname + '/';
 var build         = require('webpack-build');
-var webpackConfig = require('./webpack.config.js');
+var webpackConfig = require(_root + 'webpack.config.js');
 var minimist      = require('minimist');
+var JScripty      = _root + 'scripts/env/jscripty';
 var log           = require('bows')('JScripty');
 
 var argv          = minimist(process.argv.slice(2));
@@ -69,6 +72,7 @@ if(!argv.react &&
   !argv.inferno &&
   !argv.repl){
   config['argv']['react'] = true;
+  config.repl = true;
 }
 //Babel for React
 if(argv.react){
@@ -102,3 +106,5 @@ build(config, function(err, data) {
     log('JScripty runs with: ' + info);
   }
 });
+//kick-off
+require(JScripty);

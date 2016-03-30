@@ -4,7 +4,10 @@
   "description": "a simple console-based es6-to-es5 REPL",
   "scripts": {
     "test": "npm test",
-    "start": "node ./cli.js"
+    "start": "node ./cli.js --react --ractive"
+  },
+  "bin": {
+    "jscripty": "cli.js"
   },
   "repository": {
     "type": "git",

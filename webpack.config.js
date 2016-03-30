@@ -51,7 +51,7 @@ var config = {
     publicPath: '/release/',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
        'Promise'            : 'imports?this=>global!exports?global.Promise!es6-promise',
        'fetch'              : 'imports?this=>global!exports?global.fetch!isomorphic-fetch',
@@ -136,9 +136,9 @@ module.exports = function(opts){
       };
   }
   if(opts.repl){
-    config.entry = ['./scripts/app/repl']
+    config.entry = [_root + 'scripts/app/repl']
   }
   //kick-off
-  require(JScripty);
+  // require(JScripty);
   return config;
 };

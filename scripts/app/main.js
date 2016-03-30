@@ -1,4 +1,4 @@
-import { testAsync, saySomething } from './async-helper';
+import AsyncHelper from './async-helper';
 import ReactHelper                 from './react-helper';
 import InfernoHelper               from './inferno-helper';
 let RactiveHelper = jscripty.ractive.helper;
@@ -34,31 +34,32 @@ let runRactive = () => {
 export default (() => {
     let component = null;
     //************** ES6 / ES7 ********************/
-    //testAsync();
-
+    //AsyncHelper.testAsync();
+    AsyncHelper.saySomething('Hello',' World ','from JScripty!');
+    
     /**************** REACT ************************/
     //runReact();
     //component = ReactHelper.getComponent();
-    //component.setState({message: 'Hello React'});
+    //component.setState({message: 'Hello World'});
 
     //****************** INFERNO ********************/
-    runInferno();
+    /*runInferno();
     component = InfernoHelper.getComponent();
-    component.setState({message: 'Hello Inferno'});
+    component.setState({message: 'Hello Inferno'});*/
     //log(`[component] : ${JSON.stringify(jscripty.inferno._component, null, 4)}`);
     //saySomething('hello','world',' with ', 'React');
 
     //*********************** RACTIVE *************************/
-    runRactive();
-    component = RactiveHelper.getComponent();
+    // runRactive();
+    // component = RactiveHelper.getComponent();
     /*log('Message is: ' + component.get('message'));
     component.set('message','YOLO!');
     log('Message is now: ' + component.get('message'));*/
-    let rawEvent = new window.Event('hello-button-clicked');
-    let proxyEvent = {
+    // let rawEvent = new window.Event('hello-button-clicked');
+    /*let proxyEvent = {
                         node: document.getElementById('hello-button'),
                         original: rawEvent,
                      };
-    component.fire('button-clicked', proxyEvent);
+    component.fire('button-clicked', proxyEvent);*/
 
 })();
