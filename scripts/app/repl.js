@@ -1,4 +1,6 @@
-import env from './environment'
+import env from './environment';
+
+jscripty.env = env;
 
 let startRepl = (config) => {
   let replServer = jscripty.tools.repl.start({

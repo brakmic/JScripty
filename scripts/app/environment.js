@@ -1,22 +1,32 @@
-import { testAsync, saySomething } from './async-helper';
-import ReactHelper                 from './react-helper';
-import InfernoHelper               from './inferno-helper';
-let log = jscripty.getLogger('Main');
+import AsyncHelper   from './es6_es7/async-helper';
+import ReactHelper   from './react/react-helper';
+import InfernoHelper from './inferno/inferno-helper';
+import TsHelper      from './ts/demo';
+let log = jscripty.getLogger('Environment');
 
 let RactiveHelper = jscripty.ractive.helper;
 jscripty.inferno.helper = InfernoHelper;
 jscripty.react.helper = ReactHelper;
+jscripty.async = {
+    helper: {
+        testAsync: AsyncHelper.testAsync,
+        saySomething : AsyncHelper.saySomething
+    }
+};
 
 let runReact = () => {
-  if(!jscripty.argv.react)return;
+    if(jscripty.argv &&
+        !jscripty.argv.react)return;
   if(!jscripty.react.reactRuns){
+      log('try to run react');
       jscripty.react.reactRuns = true;
       ReactHelper.setup();
   }
 };
 
 let runInferno = () => {
-  if(!jscripty.argv.inferno)return;
+    if(jscripty.argv && 
+        !jscripty.argv.inferno)return;
   if(!jscripty.inferno.infernoRuns){
       jscripty.inferno.infernoRuns = true;
       InfernoHelper.setup();
@@ -24,7 +34,8 @@ let runInferno = () => {
 };
 
 let runRactive = () => {
-  if(!jscripty.argv.ractive)return;
+    if(jscripty.argv &&
+        !jscripty.argv.ractive)return;
   if(!jscripty.ractive.ractiveRuns){
     jscripty.ractive.ractiveRuns = true;
     RactiveHelper.setup();
@@ -38,5 +49,7 @@ export default {
   ReactHelper,
   InfernoHelper,
   RactiveHelper,
+  AsyncHelper,
+  TsHelper,
   jscripty
-}
+};

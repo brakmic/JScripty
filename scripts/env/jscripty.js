@@ -5,7 +5,7 @@ global.XMLHttpRequest = require('xhr2');
 var repl              = require('repl');
 var stringify         = require('json-stringify-safe');
 var domHelper         = require(_root + 'dom');
-var RactiveHelper     = require('../app/ractive-helper.js');
+var RactiveHelper     = require('../app/ractive/ractive-helper.js');
 
 //JScripty tools & configs
 global.jscripty = {
@@ -17,6 +17,7 @@ global.jscripty = {
   react: {},
   inferno: {},
   ractive: {},
+  async: {},
   //Node-jsDOM tools
   domHelper: domHelper,
   argv: global._argv,

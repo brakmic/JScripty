@@ -9,7 +9,8 @@ var _html = '<!DOCTYPE html>' + '\r\n' +
                         '</head>' + '\r\n' +
                         '<body>' + '\r\n' +
                             '<div id="app"></div>' + '\r\n' +
-                            '<div id="app2"></div>'
+                            '<div id="app2"></div>' + '\r\n' +
+                            '<div id="app-ts"></div>'
                         '</body>' + '\r\n' +
                     '</html>' + '\r\n';
 

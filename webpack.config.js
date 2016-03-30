@@ -43,7 +43,7 @@ var readAsync = function(fileName){
 var config = {
   //devtool: 'source-map', //currently not in use
   entry: [
-    './scripts/app/main'
+    _root + 'scripts/app/main'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -98,12 +98,21 @@ var config = {
               {   test: /\.jpg$/,
                   loader: "file-loader?name=[path][name].[ext]"
               },
+              // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
+              {
+                  test: /\.tsx?$/,
+                  loader: 'ts-loader?compiler=ntypescript'
+              }
               //for future use *** end
         ]
   },
+  // specify option using `ts` property
+  ts: {
+      compiler: 'ntypescript'
+  },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json', '.css', '.html'],
-    modulesDirectories: ['node_modules', 'bower_components'],
+      extensions: ['', '.js', '.jsx', '.json', '.css', '.html', '.ts', '.tsx' ],
+      modulesDirectories: ['node_modules', 'bower_components'],
     //for future use *** begin
     alias: {
       'app.css'                        : stylesRoot    + 'app.css',
