@@ -17,7 +17,7 @@ export class Greeter extends React.Component<GreeterProps, {}> {
         else if (g) {
             greeting = g();
         }
-
+        
         return <div>{greeting}, {this.props.whomToGreet}</div>;
     }
 }

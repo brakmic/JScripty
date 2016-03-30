@@ -1,0 +1,26 @@
+﻿{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "es6",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "scripts/app/ts/demo.tsx",
+    "scripts/app/ts/greeter.tsx",
+    "typings/react/react.d.ts",
+    "typings/react/react-dom.d.ts",
+    "typings/devextreme/devextreme.d.ts",
+    "typings/ractive/ractive.d.ts",
+    "typings/node/node.d.ts",
+    "typings/jquery/jquery.d.ts",
+    "typings/devextreme/devextreme.d.ts"
+  ]
+}

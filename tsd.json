@@ -19,6 +19,9 @@
     },
     "react/react-dom.d.ts": {
       "commit": "dbb2d9f1f1f0e50a3530dcfc02944f492be246dd"
+    },
+    "devextreme/devextreme.d.ts": {
+      "commit": "dbb2d9f1f1f0e50a3530dcfc02944f492be246dd"
     }
   }
 }

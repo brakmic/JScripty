@@ -19,6 +19,7 @@ export function renderGreeting() {
         let props: GreeterProps = {
             whomToGreet: 'world!',
         };
+        
         console.log('react from typescript!');
         ReactDOM.render(<Greetifier {...props} />, $('#app-ts').get(0));
     });
