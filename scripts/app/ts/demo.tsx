@@ -1,4 +1,7 @@
-﻿import * as React from 'react'; 
+﻿//this demo was taken from 
+//https://github.com/Microsoft/TypeScriptSamples/tree/master/jsx
+
+import * as React from 'react'; 
 import * as ReactDOM from 'react-dom';
 import * as $ from 'jquery';
 import {Greeter as Greetifier, GreeterProps as GreeterProps} from './greeter';

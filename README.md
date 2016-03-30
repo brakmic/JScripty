@@ -14,6 +14,7 @@ JScripty creates a fully functional `headless` browser environment in the consol
 #### Current Status
 
 - Compiles ES6 & ES7. [[Babel](https://babeljs.io/) presets & plugins]
+- Compiles [TypeScript](http://www.typescriptlang.org) [*React/TSX* included]
 - Runs [React](https://github.com/facebook/react) from the console.
 - Runs [Inferno](https://github.com/trueadm/inferno) from the console. [latest version [0.6.0](https://github.com/trueadm/inferno/releases/tag/0.6.0)]
 - Runs [Ractive](http://www.ractivejs.org/) from the console.
@@ -116,6 +117,7 @@ After some experimentation with `hot-reloading`, `webpack-dev-server` and a few 
 - [React](https://www.npmjs.com/package/react) directly from the console.
 - [Inferno](https://github.com/trueadm/inferno)  directly from the console.
 - [Ractive](http://www.ractivejs.org/) directly from the console.
+- [TypeScript](http://www.typescriptlang.org)
 - **REPL**
 
 #### License
