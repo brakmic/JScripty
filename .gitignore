@@ -44,3 +44,6 @@ _lib
 
 #webpack folders
 .webpack_build_cache
+
+#visual studio
+vwd.webinfo

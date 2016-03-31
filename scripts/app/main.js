@@ -1,4 +1,5 @@
 import env from './environment';
+import { Greeter } from './ts/hello';
 let log = jscripty.getLogger('Main');
 
 jscripty.env = env;
@@ -6,27 +7,37 @@ jscripty.env = env;
 //this is the main entry point for WebPack compilation
 export default (() => {
     let component = null;
+
     //************** ES6 / ES7 ********************/
     //AsyncHelper.testAsync();
     //AsyncHelper.saySomething('Hello',' World ','from JScripty!');
+    //*********************************************/
+
+    //*TypeScript with React */
+    //************************/
     //env.TsHelper.renderGreeting();
-    /**************** REACT ************************/
+    //*Using imported TypeScript classes */
+    //let greeter = new Greeter();
+    //log(greeter.greet('Coder'));
+
+    /**************** React ************************/
     //log(env);
-    env.runReact();
+    //env.runReact();
     //component = ReactHelper.getComponent();
     //component.setState({message: 'Hello World'});
 
-    log(jscripty.domHelper.getHTML());
- 
+    //*Check your DOM **/
+    //log(jscripty.domHelper.getHTML());
     //jscripty.domHelper.resetDOM();
-    //****************** INFERNO ********************/
+
+    //****************** Inferno ********************/
     /*runInferno();
     component = InfernoHelper.getComponent();
     component.setState({message: 'Hello Inferno'});*/
     //log(`[component] : ${JSON.stringify(jscripty.inferno._component, null, 4)}`);
     //saySomething('hello','world',' with ', 'React');
 
-    //*********************** RACTIVE *************************/
+    //*********************** Ractive*****************/
     // runRactive();
     // component = RactiveHelper.getComponent();
     /*log('Message is: ' + component.get('message'));

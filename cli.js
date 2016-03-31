@@ -28,7 +28,7 @@ var webpackLoaderReact = {
   test: /\.jsx?$/,
   include: path.join(__dirname, 'scripts'),
   exclude: /node_modules/,
-  loaders: ['react-hot','babel-loader'],
+  loader: 'react-hot',
 };
 //Process JSX files with Inferno (ignores .babelrc)
 var webpackLoaderInferno = {
@@ -48,20 +48,13 @@ var webpackLoaderInferno = {
     ]
   }
 }
+
 //Process Ractive components
 var webpackLoaderRactive = {
   test: /\.ract$/,
   exclude: [/node_modules/, /bower_components/, /vendor/],
   loader: 'ractive-component'
 };
-//Basic Babel functionalities in REPL-mode
-var webpackLoaderREPL = {
-  test: /\.jsx?$/,
-  include: path.join(__dirname, 'scripts'),
-  exclude: /node_modules/,
-  loaders: ['babel-loader'],
-};
-
 
 if(argv.react &&
   argv.inferno){
@@ -73,32 +66,21 @@ if(!argv.react &&
   !argv.repl){
   config['argv']['react'] = true;
   config.repl = true;
-}
-//Babel for React
-if(argv.react){
   config.loaders.push(webpackLoaderReact);
-  info.push('React');
 }
+
 //Babel for Inferno (uses different plugins for JSX processing)
 if(argv.inferno){
   config.loaders.push(webpackLoaderInferno);
   info.push('Inferno');
 }
+
 //Ractive components loader
 if(argv.ractive){
   config.loaders.push(webpackLoaderRactive);
   info.push('Ractive');
 }
-//Use default Babel to process ES6/ES7 via .babelrc
-if(argv.repl){
-  config.repl = true;
-  info.push('REPL');
-  if(!argv.react &&
-    !argv.inferno){
-    config.loaders.push(webpackLoaderREPL);
-  }
-}
-
+//Start WebPack
 build(config, function(err, data) {
   if(err){
     console.error(err);
@@ -106,5 +88,5 @@ build(config, function(err, data) {
     log('JScripty runs with: ' + info);
   }
 });
-//kick-off
+//kick-off!
 require(JScripty);

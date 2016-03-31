@@ -69,7 +69,6 @@ var config = {
   module: {
 
     loaders: [
-              //for future use *** begin
               {
                 test: /\.json$/,
                 exclude: /node_modules/,
@@ -98,12 +97,18 @@ var config = {
               {   test: /\.jpg$/,
                   loader: "file-loader?name=[path][name].[ext]"
               },
-              // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
+              {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'babel',
+                query: {
+                  presets: ['es2015', 'react']
+                }
+              },
               {
                   test: /\.tsx?$/,
-                  loader: 'ts-loader?compiler=ntypescript'
+                  loader: 'ts'
               }
-              //for future use *** end
         ]
   },
   // specify option using `ts` property
@@ -147,7 +152,5 @@ module.exports = function(opts){
   if(opts.repl){
     config.entry = [_root + 'scripts/app/repl']
   }
-  //kick-off
-  // require(JScripty);
   return config;
 };

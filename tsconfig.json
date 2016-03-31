@@ -4,20 +4,29 @@
     "jsx": "react",
     "target": "es6",
     "module": "commonjs",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "removeComments": false,
     "preserveConstEnums": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "pretty": true,
+    "allowJs": true
   },
   "exclude": [
     "node_modules"
   ],
+  "filesGlob": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "!node_modules/**",
+    "!styles/**",
+    "!test/**",
+    "!**/vendor/**"
+  ],
   "files": [
-    "scripts/app/ts/demo.tsx",
-    "scripts/app/ts/greeter.tsx",
     "typings/react/react.d.ts",
     "typings/react/react-dom.d.ts",
-    "typings/devextreme/devextreme.d.ts",
     "typings/ractive/ractive.d.ts",
     "typings/node/node.d.ts",
     "typings/jquery/jquery.d.ts",

@@ -1,7 +1,7 @@
-﻿//this demo was taken from 
+﻿//this demo was taken from
 //https://github.com/Microsoft/TypeScriptSamples/tree/master/jsx
 
-import * as React from 'react'; 
+import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as $ from 'jquery';
 import {Greeter as Greetifier, GreeterProps as GreeterProps} from './greeter';
@@ -19,8 +19,8 @@ export function renderGreeting() {
         let props: GreeterProps = {
             whomToGreet: 'world!',
         };
-        
-        console.log('react from typescript!');
+
+        console.log('Rendering React components with TypeScript!');
         ReactDOM.render(<Greetifier {...props} />, $('#app-ts').get(0));
     });
 }

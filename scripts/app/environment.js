@@ -1,7 +1,7 @@
 import AsyncHelper   from './es6_es7/async-helper';
 import ReactHelper   from './react/react-helper';
 import InfernoHelper from './inferno/inferno-helper';
-import TsHelper      from './ts/demo';
+import TsHelper      from './ts/react-demo';
 let log = jscripty.getLogger('Environment');
 
 let RactiveHelper = jscripty.ractive.helper;
@@ -18,14 +18,13 @@ let runReact = () => {
     if(jscripty.argv &&
         !jscripty.argv.react)return;
   if(!jscripty.react.reactRuns){
-      log('try to run react');
       jscripty.react.reactRuns = true;
       ReactHelper.setup();
   }
 };
 
 let runInferno = () => {
-    if(jscripty.argv && 
+    if(jscripty.argv &&
         !jscripty.argv.inferno)return;
   if(!jscripty.inferno.infernoRuns){
       jscripty.inferno.infernoRuns = true;

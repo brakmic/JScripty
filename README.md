@@ -2,7 +2,7 @@
 
 A simple REPL for transpiling & executing ES6/ES7 code.
 
-<del>Inspired by</del> Stolen from the excellent [esbox](https://github.com/callumlocke/esbox)
+<del>Stolen from</del> Inspired by the excellent [esbox](https://github.com/callumlocke/esbox)
 written by [Callum Locke](https://twitter.com/callumlocke).
 
 **Beware**: This project is not intended to be used for anything productive!
@@ -14,7 +14,7 @@ JScripty creates a fully functional `headless` browser environment in the consol
 #### Current Status
 
 - Compiles ES6 & ES7. [[Babel](https://babeljs.io/) presets & plugins]
-- Compiles [TypeScript](http://www.typescriptlang.org) [*React/TSX* included]
+- Compiles [TypeScript](http://www.typescriptlang.org)
 - Runs [React](https://github.com/facebook/react) from the console.
 - Runs [Inferno](https://github.com/trueadm/inferno) from the console. [latest version [0.6.0](https://github.com/trueadm/inferno/releases/tag/0.6.0)]
 - Runs [Ractive](http://www.ractivejs.org/) from the console.

@@ -5,12 +5,12 @@ global.XMLHttpRequest = require('xhr2');
 var repl              = require('repl');
 var stringify         = require('json-stringify-safe');
 var domHelper         = require(_root + 'dom');
-var RactiveHelper     = require('../app/ractive/ractive-helper.js');
+var RactiveHelper     = require('../app/ractive/ractive-helper');
 
 //JScripty tools & configs
 global.jscripty = {
   config: {
-    //set to "false" when not running in Visual Studio
+    //set to "true" when running in Visual Studio
     keepPreviousOutput : true
   },
   activeFrameworks: [],
